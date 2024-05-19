@@ -7,6 +7,7 @@ import 'package:app3/ui/utils/app_assets.dart';
 import 'package:app3/ui/utils/app_colors.dart';
 import 'package:app3/ui/utils/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -61,17 +62,17 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           selectedItemColor: AppColors.accent,
           iconSize: 30,
-          items: const [
+          items:  [
             BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(AppAssets.icQuran)), label: 'Quran'),
+                icon: const ImageIcon(AssetImage(AppAssets.icQuran)), label: AppLocalizations.of(context)!.quran),
             BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(AppAssets.ichadeth)),
-                label: 'Hadeth'),
+                icon: const ImageIcon(AssetImage(AppAssets.ichadeth)),
+                label: AppLocalizations.of(context)!.ahadeth),
             BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(AppAssets.icSebha)), label: 'Sebha'),
-            BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Azkar'),
+                icon: const ImageIcon(AssetImage(AppAssets.icSebha)), label: AppLocalizations.of(context)!.sebha),
+            BottomNavigationBarItem(icon: const Icon(Icons.list), label: AppLocalizations.of(context)!.azkar),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: 'Setting'),
+                icon: const Icon(Icons.settings), label:  AppLocalizations.of(context)!.settings),
           ],
         ),
       );

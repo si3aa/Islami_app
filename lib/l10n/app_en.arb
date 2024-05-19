@@ -1,3 +1,4 @@
+     
      {
      "islami": "Islami",
      "quran": "Quran",
@@ -5,7 +6,6 @@
      "numberOfPraises": "Number of praises",
      "ahadeth": "Ahadeth",
      "sebha": "Sebha",
-     "radio": "Radio",
-     "settings" : "settings",
-     "ahadeth" : "Ahadeth"
+     "azkar": "Azkar",
+     "settings" : "settings"
      }

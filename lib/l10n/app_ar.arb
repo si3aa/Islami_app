@@ -2,10 +2,10 @@
    "islami": "اسلامي",
     "quran": "قرآن",
     "suraName": "اسم السورة",
+    "darkMode" : "الوضع الداكن",
     "numberOfPraises" : "عدد التسبيحات",
     "ahadeth" : "أحاديث",
     "sebha" : "سبحه",
-     "radio" : "راديو",
-     "settings" : "الاعدادات",
-     "ahadeth" : "الأحاديث"
+     "azkar" : "الاذكار",
+     "settings" : "الاعدادات"
 }
