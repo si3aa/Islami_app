@@ -4,6 +4,7 @@ import 'package:app3/ui/utils/app_assets.dart';
 import 'package:app3/ui/utils/app_colors.dart';
 import 'package:app3/ui/utils/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadethTab extends StatelessWidget {
   const AhadethTab({super.key});
@@ -24,8 +25,8 @@ class AhadethTab extends StatelessWidget {
             thickness: 3,
             color: AppColors.primary,
           ),
-          const Text(
-            'HadethName',
+           Text(
+            AppLocalizations.of(context)!.hadethName,
             style: AppTheme.suraNameTextStyle,
             textAlign: TextAlign.center,
           ),

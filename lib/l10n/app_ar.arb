@@ -2,6 +2,7 @@
    "islami": "اسلامي",
     "quran": "قرآن",
     "suraName": "اسم السورة",
+    "hadethName":"اسم الحديث",
     "darkMode" : "الوضع الداكن",
     "numberOfPraises" : "عدد التسبيحات",
     "ahadeth" : "أحاديث",

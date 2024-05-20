@@ -62,17 +62,22 @@ class _HomeScreenState extends State<HomeScreen> {
           },
           selectedItemColor: AppColors.accent,
           iconSize: 30,
-          items:  [
+          items: [
             BottomNavigationBarItem(
-                icon: const ImageIcon(AssetImage(AppAssets.icQuran)), label: AppLocalizations.of(context)!.quran),
+                icon: const ImageIcon(AssetImage(AppAssets.icQuran)),
+                label: AppLocalizations.of(context)!.quran),
             BottomNavigationBarItem(
                 icon: const ImageIcon(AssetImage(AppAssets.ichadeth)),
                 label: AppLocalizations.of(context)!.ahadeth),
             BottomNavigationBarItem(
-                icon: const ImageIcon(AssetImage(AppAssets.icSebha)), label: AppLocalizations.of(context)!.sebha),
-            BottomNavigationBarItem(icon: const Icon(Icons.list), label: AppLocalizations.of(context)!.azkar),
+                icon: const ImageIcon(AssetImage(AppAssets.icSebha)),
+                label: AppLocalizations.of(context)!.sebha),
             BottomNavigationBarItem(
-                icon: const Icon(Icons.settings), label:  AppLocalizations.of(context)!.settings),
+                icon: const Icon(Icons.list),
+                label: AppLocalizations.of(context)!.azkar),
+            BottomNavigationBarItem(
+                icon: const Icon(Icons.settings),
+                label: AppLocalizations.of(context)!.settings),
           ],
         ),
       );

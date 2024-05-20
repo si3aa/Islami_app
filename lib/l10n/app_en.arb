@@ -7,5 +7,6 @@
      "ahadeth": "Ahadeth",
      "sebha": "Sebha",
      "azkar": "Azkar",
-     "settings" : "settings"
+     "settings" : "settings",
+     "hadethName":"Hadeth Name"
      }
