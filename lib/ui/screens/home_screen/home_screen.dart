@@ -20,7 +20,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentTabIndex = 0;
-  List<String> title = ['Quran', 'Hadeth', 'Sepha', 'Azkar', 'Setting'];
+  List<String> title(context) {
+    return [
+      AppLocalizations.of(context)!.quran,
+      AppLocalizations.of(context)!.ahadeth,
+      AppLocalizations.of(context)!.sebha,
+      AppLocalizations.of(context)!.azkar,
+      AppLocalizations.of(context)!.settings,
+    ];
+  }
+
   List<Widget> tabs = [
     const QuranTab(),
     const AhadethTab(),
@@ -41,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: AppColors.transparent,
           centerTitle: true,
           title: Text(
-            title[currentTabIndex],
+            title(context)[currentTabIndex],
             style: AppTheme.appBArTitleTextStyle,
           ),
         ),
