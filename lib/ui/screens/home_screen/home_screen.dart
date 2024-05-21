@@ -1,3 +1,4 @@
+import 'package:app3/providers/settings_provider.dart';
 import 'package:app3/ui/screens/home_screen/tabs/ahadeth/ahadeth_screen.dart';
 import 'package:app3/ui/screens/home_screen/tabs/azkar/main_zekr.dart';
 import 'package:app3/ui/screens/home_screen/tabs/quran/quran_screen.dart';
@@ -5,9 +6,9 @@ import 'package:app3/ui/screens/home_screen/tabs/setting/setting.dart';
 import 'package:app3/ui/screens/home_screen/tabs/sepha_screen/sepha_screen.dart';
 import 'package:app3/ui/utils/app_assets.dart';
 import 'package:app3/ui/utils/app_colors.dart';
-import 'package:app3/ui/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -20,6 +21,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int currentTabIndex = 0;
+
   List<String> title(context) {
     return [
       AppLocalizations.of(context)!.quran,
@@ -40,18 +42,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of(context);
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(AppAssets.backGroundLight), fit: BoxFit.fill)),
+              image: AssetImage(settingsProvider.isDarkMode()
+                  ? AppAssets.backgroundDark
+                  : AppAssets.backGroundLight),
+              fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(
-          elevation: 0,
-          backgroundColor: AppColors.transparent,
-          centerTitle: true,
           title: Text(
             title(context)[currentTabIndex],
-            style: AppTheme.appBArTitleTextStyle,
           ),
         ),
         backgroundColor: AppColors.transparent,
@@ -62,14 +64,14 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget buildBottomNavigationBar() => Theme(
-        data: ThemeData(canvasColor: AppColors.primary),
+        data: Theme.of(context)
+            .copyWith(canvasColor: Theme.of(context).primaryColor),
         child: BottomNavigationBar(
           currentIndex: currentTabIndex,
           onTap: (index) {
             currentTabIndex = index;
             setState(() {});
           },
-          selectedItemColor: AppColors.accent,
           iconSize: 30,
           items: [
             BottomNavigationBarItem(

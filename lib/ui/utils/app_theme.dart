@@ -16,21 +16,27 @@ abstract class AppTheme {
       fontWeight: FontWeight.normal, fontSize: 20, color: AppColors.accent);
 
   static ThemeData lightTheme = ThemeData(
-      primaryColor: AppColors.primary,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        titleTextStyle: appBArTitleTextStyle,
-      ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          selectedIconTheme: IconThemeData(size: 32),
-          unselectedIconTheme: IconThemeData(size: 32)),
-      scaffoldBackgroundColor: AppColors.transparent,
-      textTheme: const TextTheme(
-        bodySmall: suraNameTextStyle,
-        bodyLarge: appBArTitleTextStyle,
-      ));
+    primaryColor: AppColors.primary,
+    dividerTheme: const DividerThemeData(
+      thickness: 3,
+      color: AppColors.primary,
+    ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppColors.transparent,
+      elevation: 0,
+      centerTitle: true,
+      titleTextStyle: appBArTitleTextStyle,
+    ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      selectedIconTheme: IconThemeData(size: 32),
+      unselectedIconTheme: IconThemeData(size: 32),
+    ),
+    scaffoldBackgroundColor: AppColors.transparent,
+    textTheme: const TextTheme(
+      bodySmall: settingsOptionTextStyle,
+      bodyLarge: appBArTitleTextStyle,
+    ),
+  );
   static ThemeData darkTheme = ThemeData(
       primaryColor: AppColors.primiaryDark,
       appBarTheme: AppBarTheme(

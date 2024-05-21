@@ -5,6 +5,7 @@ import 'package:app3/ui/utils/app_colors.dart';
 import 'package:app3/ui/utils/app_theme.dart';
 import 'package:app3/ui/utils/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuranTab extends StatelessWidget {
   const QuranTab({super.key});
@@ -18,13 +19,10 @@ class QuranTab extends StatelessWidget {
           flex: 3,
           child: Image.asset(AppAssets.quranScreenLogo),
         ),
-        const Divider(
-          thickness: 3,
-          color: AppColors.primary,
-        ),
-        const Text(
-          'SuraName',
-          style: AppTheme.suraNameTextStyle,
+        const Divider(),
+        Text(
+          AppLocalizations.of(context)!.suraName,
+          style: Theme.of(context).textTheme.bodyLarge,
           textAlign: TextAlign.center,
         ),
         const Divider(
@@ -39,9 +37,10 @@ class QuranTab extends StatelessWidget {
               return TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, DetailScreen.routeName,
-                  arguments: SuraDetailsArguments(fileName: '${index+1}.txt',
-                   suraOrHadethName: Constants.suraNAme[index],
-                   isQuranFile: true));
+                      arguments: SuraDetailsArguments(
+                          fileName: '${index + 1}.txt',
+                          suraOrHadethName: Constants.suraNAme[index],
+                          isQuranFile: true));
                 },
                 child: Text(
                   'سورة ${Constants.suraNAme[index]}',

@@ -1,6 +1,9 @@
+import 'package:app3/providers/settings_provider.dart';
 import 'package:app3/ui/utils/app_colors.dart';
 import 'package:app3/ui/utils/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // ignore: must_be_immutable
 class SettingTAb extends StatefulWidget {
@@ -13,24 +16,34 @@ class SettingTAb extends StatefulWidget {
 }
 
 class _SettingTAbState extends State<SettingTAb> {
-  bool arSwitch = true;
+  bool arSwitch = false;
   bool darkMode = false;
+  late SettingsProvider provider;
 
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Text('Settings', style: AppTheme.settingsTitleTextStyle),
+           Text(AppLocalizations.of(context)!.settings, style: Theme.of(context).textTheme.bodyLarge),
           buildSettingRow('العربية', arSwitch, (newValue) {
             arSwitch = newValue;
-            setState(() {});
+            if (arSwitch) {
+              provider.setCurrentLocale("ar");
+            } else {
+              provider.setCurrentLocale("en");
+            }
           }),
-          buildSettingRow('Dark Mode', darkMode, (newValue) {
+          buildSettingRow(AppLocalizations.of(context)!.darkMode, darkMode, (newValue) {
             darkMode = newValue;
-            setState(() {});
+            if (darkMode) {
+              provider.setCurrentMode(ThemeMode.dark);
+            } else {
+              provider.setCurrentMode(ThemeMode.light);
+            }
           }),
         ],
       ),
@@ -42,9 +55,12 @@ class _SettingTAbState extends State<SettingTAb> {
     return Row(
       children: [
         const SizedBox(width: 16),
-        Text(title, style: AppTheme.settingsOptionTextStyle),
+        Text(title, style: Theme.of(context).textTheme.bodySmall),
         const Spacer(),
-        Switch(value:switchValue, onChanged: onChanged, activeColor: AppColors.primary),
+        Switch(
+            value: switchValue,
+            onChanged: onChanged,
+            activeColor: AppColors.primary),
       ],
     );
   }

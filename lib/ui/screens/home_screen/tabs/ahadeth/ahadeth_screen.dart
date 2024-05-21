@@ -11,53 +11,50 @@ class AhadethTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> hadethNames = List.generate(50,(index){
-      return "${index+1}الحديث رقم ";
+    List<String> hadethNames = List.generate(50, (index) {
+      return "${index + 1}الحديث رقم ";
     });
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            flex: 3,
-            child: Image.asset(AppAssets.hadethScreenLogo),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Expanded(
+          flex: 3,
+          child: Image.asset(AppAssets.hadethScreenLogo),
+        ),
+        const Divider(),
+        Text(
+          AppLocalizations.of(context)!.hadethName,
+          style:  Theme.of(context).textTheme.bodyLarge,
+          textAlign: TextAlign.center,
+        ),
+        const Divider(
+          thickness: 3,
+          color: AppColors.primary,
+        ),
+        Expanded(
+          flex: 7,
+          child: ListView.builder(
+            itemCount: hadethNames.length,
+            itemBuilder: (_, index) {
+              return TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, DetailScreen.routeName,
+                      arguments: SuraDetailsArguments(
+                          fileName: 'h${index + 1}.txt',
+                          suraOrHadethName: hadethNames[index],
+                          isQuranFile: false));
+                },
+                child: Text(
+                  hadethNames[index],
+                  style: AppTheme.suraNameTextStyle
+                      .copyWith(fontWeight: FontWeight.normal),
+                  textAlign: TextAlign.center,
+                ),
+              );
+            },
           ),
-          const Divider(
-            thickness: 3,
-            color: AppColors.primary,
-          ),
-           Text(
-            AppLocalizations.of(context)!.hadethName,
-            style: AppTheme.suraNameTextStyle,
-            textAlign: TextAlign.center,
-          ),
-          const Divider(
-            thickness: 3,
-            color: AppColors.primary,
-          ),
-          Expanded(
-            flex: 7,
-            child: ListView.builder(
-              itemCount: hadethNames.length,
-              itemBuilder: (_, index) {
-                return TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, DetailScreen.routeName,
-                        arguments: SuraDetailsArguments(
-                            fileName: 'h${index + 1}.txt',
-                            suraOrHadethName:  hadethNames[index],
-                            isQuranFile: false));
-                  },
-                  child: Text(
-                   hadethNames[index] ,
-                    style: AppTheme.suraNameTextStyle
-                        .copyWith(fontWeight: FontWeight.normal),
-                    textAlign: TextAlign.center,
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      );
+        ),
+      ],
+    );
   }
 }

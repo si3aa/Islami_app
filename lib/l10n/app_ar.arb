@@ -1,12 +1,12 @@
 {
    "islami": "اسلامي",
-    "quran": "قرآن",
+    "quran": "القرآن",
     "suraName": "اسم السورة",
     "hadethName":"اسم الحديث",
     "darkMode" : "الوضع الداكن",
     "numberOfPraises" : "عدد التسبيحات",
-    "ahadeth" : "أحاديث",
-    "sebha" : "سبحه",
-     "azkar" : "الاذكار",
+    "ahadeth" : "الأحاديث",
+    "sebha" : "المسبحة",
+     "azkar" : "الأذكار",
      "settings" : "الاعدادات"
 }
