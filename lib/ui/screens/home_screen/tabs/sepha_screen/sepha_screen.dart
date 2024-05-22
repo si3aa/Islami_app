@@ -1,7 +1,9 @@
+import 'package:app3/providers/settings_provider.dart';
 import 'package:app3/ui/utils/app_assets.dart';
 import 'package:app3/ui/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
 class SephaTab extends StatefulWidget {
   const SephaTab({super.key});
@@ -27,6 +29,7 @@ class _SephaTabState extends State<SephaTab> {
   int indexOfAllText = 0;
   @override
   Widget build(BuildContext context) {
+     SettingsProvider settingsProvider = Provider.of(context);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -49,10 +52,14 @@ class _SephaTabState extends State<SephaTab> {
               child: Stack(
                 alignment: Alignment.topCenter,
                 children: [
-                  Image.asset(AppAssets.headSebhaLogoDefault),
+                  Image.asset(settingsProvider.isDarkMode()
+                      ? AppAssets.headSebhaLogoDark
+                      : AppAssets.headSebhaLogoDefault),
                   SizedBox(
                     height: 370,
-                    child: Image.asset(AppAssets.bodySebhaLogoDefault),
+                    child: Image.asset(settingsProvider.isDarkMode()
+                      ? AppAssets.bodySebhaLogoDark
+                      : AppAssets.bodySebhaLogoDefault),
                   ),
                 ],
               ),
@@ -65,7 +72,7 @@ class _SephaTabState extends State<SephaTab> {
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                color: AppColors.primary),
+                color:settingsProvider.isDarkMode()? Theme.of(context).bottomNavigationBarTheme.selectedItemColor :Theme.of(context).primaryColor),
             child: Text(
               allText[indexOfAllText],
               style: const TextStyle(color: AppColors.white, fontSize: 25),
@@ -77,7 +84,7 @@ class _SephaTabState extends State<SephaTab> {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
             decoration: BoxDecoration(
-              color: AppColors.primary,
+              color:settingsProvider.isDarkMode()? Theme.of(context).bottomNavigationBarTheme.selectedItemColor :Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(30),
             ),
             child: Text(

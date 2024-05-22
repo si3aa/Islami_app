@@ -1,5 +1,4 @@
 import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_detail.dart';
-import 'package:app3/ui/utils/app_colors.dart';
 import 'package:app3/ui/utils/azkar.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +24,7 @@ class MainZekr extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 4),
               height: 45,
               decoration: BoxDecoration(
-                color: AppColors.primary,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.only(
                   topLeft: index == 0
                       ? const Radius.circular(50.0)
