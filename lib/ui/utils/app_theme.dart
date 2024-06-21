@@ -28,7 +28,7 @@ abstract class AppTheme {
       titleTextStyle: appBArTitleTextStyle,
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      selectedIconTheme: IconThemeData(size: 32),
+      selectedIconTheme: IconThemeData(size: 35),
       unselectedIconTheme: IconThemeData(size: 25),
     ),
     scaffoldBackgroundColor: AppColors.transparent,
@@ -51,8 +51,8 @@ abstract class AppTheme {
     ),
     scaffoldBackgroundColor: AppColors.transparent,
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedIconTheme: IconThemeData(size: 32),
-        unselectedIconTheme: IconThemeData(size: 32),
+        selectedIconTheme: IconThemeData(size: 35),
+        unselectedIconTheme: IconThemeData(size: 25),
         selectedItemColor: AppColors.yellow),
     textTheme: TextTheme(
       bodySmall: suraNameTextStyle.copyWith(color: Colors.white),

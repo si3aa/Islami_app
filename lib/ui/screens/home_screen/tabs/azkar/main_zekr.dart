@@ -2,10 +2,17 @@ import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_detail.dart';
 import 'package:app3/ui/utils/azkar.dart';
 import 'package:flutter/material.dart';
 
-class MainZekr extends StatelessWidget {
+var selectedTitle = '';
+
+class MainZekr extends StatefulWidget {
   const MainZekr({super.key});
   static String routeName = 'zekr';
 
+  @override
+  State<MainZekr> createState() => _MainZekrState();
+}
+
+class _MainZekrState extends State<MainZekr> {
   @override
   Widget build(BuildContext context) {
     var zekrCategoryTitle = azkarjason
@@ -51,9 +58,10 @@ class MainZekr extends StatelessWidget {
               ),
             ),
             onTap: () {
-              Navigator.pushNamed(
-                context,ZekrDetail.routeName
-              );
+              setState(() {
+                selectedTitle = zekrCategoryTitle[index]!;
+              });
+              Navigator.pushNamed(context, ZekrDetail.routeName);
             },
           ),
         );

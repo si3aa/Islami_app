@@ -35,6 +35,9 @@ class _DetailScreenState extends State<DetailScreen> {
       ),
       child: Scaffold(
         appBar: AppBar(
+           iconTheme: IconThemeData(
+            color:settingsProvider.isDarkMode()? AppColors.white:AppColors.accent, 
+          ),
           elevation: 0,
           backgroundColor: AppColors.transparent,
           centerTitle: true,

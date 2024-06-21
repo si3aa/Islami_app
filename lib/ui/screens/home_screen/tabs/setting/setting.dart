@@ -1,6 +1,5 @@
 import 'package:app3/providers/settings_provider.dart';
 import 'package:app3/ui/utils/app_colors.dart';
-import 'package:app3/ui/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -28,7 +27,8 @@ class _SettingTAbState extends State<SettingTAb> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-           Text(AppLocalizations.of(context)!.settings, style: Theme.of(context).textTheme.bodyLarge),
+          Text(AppLocalizations.of(context)!.settings,
+              style: Theme.of(context).textTheme.bodyLarge),
           buildSettingRow('العربية', arSwitch, (newValue) {
             arSwitch = newValue;
             if (arSwitch) {
@@ -37,7 +37,8 @@ class _SettingTAbState extends State<SettingTAb> {
               provider.setCurrentLocale("en");
             }
           }),
-          buildSettingRow(AppLocalizations.of(context)!.darkMode, darkMode, (newValue) {
+          buildSettingRow(AppLocalizations.of(context)!.darkMode, darkMode,
+              (newValue) {
             darkMode = newValue;
             if (darkMode) {
               provider.setCurrentMode(ThemeMode.dark);
