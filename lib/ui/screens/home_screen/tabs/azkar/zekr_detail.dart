@@ -1,8 +1,9 @@
 import 'package:app3/providers/settings_provider.dart';
 import 'package:app3/ui/screens/home_screen/tabs/azkar/main_zekr.dart';
+import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_component.dart';
+import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_items.dart';
 import 'package:app3/ui/utils/app_assets.dart';
 import 'package:app3/ui/utils/app_colors.dart';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +30,9 @@ class _ZekrDetailState extends State<ZekrDetail> {
       child: Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(
-            color:settingsProvider.isDarkMode()? AppColors.white:AppColors.accent, 
+            color: settingsProvider.isDarkMode()
+                ? AppColors.white
+                : AppColors.accent,
           ),
           elevation: 0,
           backgroundColor: AppColors.transparent,
@@ -47,6 +50,11 @@ class _ZekrDetailState extends State<ZekrDetail> {
             ),
           ),
         ),
+        body: ListView.builder(
+            itemCount: zekrElements.length,
+            itemBuilder: (context, index) {
+              return const ShowZekrItems();
+            }),
       ),
     );
   }

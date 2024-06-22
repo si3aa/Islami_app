@@ -2,7 +2,6 @@ import 'package:app3/providers/settings_provider.dart';
 import 'package:app3/ui/utils/app_assets.dart';
 import 'package:app3/ui/utils/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class SephaTab extends StatefulWidget {

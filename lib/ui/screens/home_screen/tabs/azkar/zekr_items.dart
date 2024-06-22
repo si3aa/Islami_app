@@ -1,19 +1,25 @@
+import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_component.dart';
 import 'package:flutter/material.dart';
 
-class ZekrItems extends StatefulWidget {
-  const ZekrItems({super.key});
+class ShowZekrItems extends StatefulWidget {
+  const ShowZekrItems({super.key});
 
   @override
-  State<ZekrItems> createState() => _ZekrItemsState();
+  State<ShowZekrItems> createState() => _ZekrItemsState();
 }
 
-class _ZekrItemsState extends State<ZekrItems> {
+class _ZekrItemsState extends State<ShowZekrItems> {
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      child: const Center(
-        child: Text("Zekr Items"),
-      ),
+    return Column(
+      children: [
+        Container(
+          color: Colors.blue
+          ,child: Text(
+            ZekrComponent.zekr!
+          ),
+        )
+      ],
     );
   }
 }
