@@ -1,8 +1,8 @@
+import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_component.dart';
 import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_detail.dart';
-import 'package:app3/ui/utils/azkar.dart';
 import 'package:flutter/material.dart';
 
-var selectedTitle = '';
+
 
 class MainZekr extends StatefulWidget {
   const MainZekr({super.key});
@@ -15,12 +15,6 @@ class MainZekr extends StatefulWidget {
 class _MainZekrState extends State<MainZekr> {
   @override
   Widget build(BuildContext context) {
-    var zekrCategoryTitle = azkarjason
-        .map((zekrTitle) => zekrTitle['category'])
-        .toList()
-        .toSet()
-        .toList();
-
     return ListView.builder(
       itemCount: zekrCategoryTitle.length,
       itemBuilder: (_, index) {
@@ -58,9 +52,7 @@ class _MainZekrState extends State<MainZekr> {
               ),
             ),
             onTap: () {
-              setState(() {
-                selectedTitle = zekrCategoryTitle[index]!;
-              });
+              selectedTitle = zekrCategoryTitle[index]!;
               Navigator.pushNamed(context, ZekrDetail.routeName);
             },
           ),

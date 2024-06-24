@@ -1,7 +1,6 @@
 import 'package:app3/providers/settings_provider.dart';
 import 'package:app3/ui/screens/home_screen/tabs/azkar/main_zekr.dart';
 import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_component.dart';
-import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_items.dart';
 import 'package:app3/ui/utils/app_assets.dart';
 import 'package:app3/ui/utils/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -51,9 +50,11 @@ class _ZekrDetailState extends State<ZekrDetail> {
           ),
         ),
         body: ListView.builder(
-            itemCount: zekrElements.length,
+            itemCount: filteredAzkarList.length,
             itemBuilder: (context, index) {
-              return const ShowZekrItems();
+              return ListTile(
+                 title: Text(filteredAzkarList[index]['zekr']),
+              );
             }),
       ),
     );
