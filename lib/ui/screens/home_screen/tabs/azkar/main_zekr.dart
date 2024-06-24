@@ -2,21 +2,14 @@ import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_component.dart';
 import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_detail.dart';
 import 'package:flutter/material.dart';
 
-
-
-class MainZekr extends StatefulWidget {
+class MainZekr extends StatelessWidget {
   const MainZekr({super.key});
   static String routeName = 'zekr';
 
   @override
-  State<MainZekr> createState() => _MainZekrState();
-}
-
-class _MainZekrState extends State<MainZekr> {
-  @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: zekrCategoryTitle.length,
+      itemCount: zekrCategory.length,
       itemBuilder: (_, index) {
         return Padding(
           padding: const EdgeInsets.only(left: 5, right: 5),
@@ -33,17 +26,17 @@ class _MainZekrState extends State<MainZekr> {
                   topRight: index == 0
                       ? const Radius.circular(50.0)
                       : const Radius.circular(15.0),
-                  bottomLeft: index == zekrCategoryTitle.length - 1
+                  bottomLeft: index == zekrCategory.length - 1
                       ? const Radius.circular(50.0)
                       : const Radius.circular(15.0),
-                  bottomRight: index == zekrCategoryTitle.length - 1
+                  bottomRight: index == zekrCategory.length - 1
                       ? const Radius.circular(50.0)
                       : const Radius.circular(15.0),
                 ),
               ),
               child: Center(
                 child: Text(
-                  '${zekrCategoryTitle[index]}',
+                  '${zekrCategory[index]}',
                   style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -52,7 +45,7 @@ class _MainZekrState extends State<MainZekr> {
               ),
             ),
             onTap: () {
-              selectedTitle = zekrCategoryTitle[index]!;
+              selectedTitle =zekrCategory[index]!;
               Navigator.pushNamed(context, ZekrDetail.routeName);
             },
           ),

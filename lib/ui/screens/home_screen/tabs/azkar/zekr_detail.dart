@@ -1,20 +1,13 @@
 import 'package:app3/providers/settings_provider.dart';
-import 'package:app3/ui/screens/home_screen/tabs/azkar/main_zekr.dart';
 import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_component.dart';
 import 'package:app3/ui/utils/app_assets.dart';
 import 'package:app3/ui/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ZekrDetail extends StatefulWidget {
+class ZekrDetail extends StatelessWidget {
   const ZekrDetail({super.key});
   static String routeName = 'title';
-
-  @override
-  State<ZekrDetail> createState() => _ZekrDetailState();
-}
-
-class _ZekrDetailState extends State<ZekrDetail> {
   @override
   Widget build(BuildContext context) {
     SettingsProvider settingsProvider = Provider.of(context);
@@ -53,8 +46,7 @@ class _ZekrDetailState extends State<ZekrDetail> {
             itemCount: filteredAzkarList.length,
             itemBuilder: (context, index) {
               return ListTile(
-                 title: Text(filteredAzkarList[index]['zekr']),
-              );
+                title: Text(filteredAzkarList[index]['zekr']));
             }),
       ),
     );
