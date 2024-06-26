@@ -6,6 +6,7 @@ import 'package:app3/ui/screens/home_screen/tabs/setting/setting.dart';
 import 'package:app3/ui/screens/home_screen/tabs/sepha_screen/sepha_screen.dart';
 import 'package:app3/ui/utils/app_assets.dart';
 import 'package:app3/ui/utils/app_colors.dart';
+import 'package:app3/ui/utils/azkar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -36,7 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
     const QuranTab(),
     const AhadethTab(),
     const SephaTab(),
-    const MainZekr(),
+    MainZekr(
+      azkarjason: azkarjason,
+    ),
     const SettingTAb(),
   ];
 

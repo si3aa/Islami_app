@@ -3,11 +3,14 @@ import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_detail.dart';
 import 'package:flutter/material.dart';
 
 class MainZekr extends StatelessWidget {
-  const MainZekr({super.key});
+  final List<Map<String, dynamic>> azkarjason;
+
+  const MainZekr({super.key, required this.azkarjason});
   static String routeName = 'zekr';
 
   @override
   Widget build(BuildContext context) {
+
     return ListView.builder(
       itemCount: zekrCategory.length,
       itemBuilder: (_, index) {
@@ -45,8 +48,15 @@ class MainZekr extends StatelessWidget {
               ),
             ),
             onTap: () {
-              selectedTitle =zekrCategory[index]!;
-              Navigator.pushNamed(context, ZekrDetail.routeName);
+               Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ZekrDetail(
+                    category: zekrCategory[index]!,
+                     azkarjason: azkarjason,
+                  ),
+                ),
+              );
             },
           ),
         );
