@@ -3,8 +3,8 @@
 import 'package:app3/providers/settings_provider.dart';
 import 'package:app3/ui/screens/details/details.dart';
 import 'package:app3/ui/screens/home_screen/home_screen.dart';
+import 'package:app3/ui/screens/home_screen/tabs/azkar/azkar_details.dart';
 import 'package:app3/ui/screens/home_screen/tabs/azkar/main_zekr.dart';
-import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_detail.dart';
 import 'package:app3/ui/screens/home_screen/tabs/sepha_screen/sepha_screen.dart';
 import 'package:app3/ui/screens/splash_screen/splash_screen.dart';
 import 'package:app3/ui/utils/app_theme.dart';

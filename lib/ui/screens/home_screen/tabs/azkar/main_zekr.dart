@@ -1,5 +1,6 @@
+import 'package:app3/ui/screens/home_screen/tabs/azkar/azkar_details.dart';
 import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_component.dart';
-import 'package:app3/ui/screens/home_screen/tabs/azkar/zekr_detail.dart';
+
 import 'package:flutter/material.dart';
 
 class MainZekr extends StatelessWidget {
