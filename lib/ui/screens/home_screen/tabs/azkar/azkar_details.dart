@@ -81,74 +81,90 @@ class _ZekrDetailState extends State<ZekrDetail> {
           itemBuilder: (context, index) {
             bool isButtonEnabled =
                 currentCounts[index].toString() != azkarjason[index]['count'];
-            return Container(
-              margin: const EdgeInsets.only(bottom: 4),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: index == 0
-                      ? const Radius.circular(20.0)
-                      : const Radius.circular(15.0),
-                  topRight: index == 0
-                      ? const Radius.circular(20.0)
-                      : const Radius.circular(15.0),
-                  bottomLeft: index == filteredAzkarList.length - 1
-                      ? const Radius.circular(20.0)
-                      : const Radius.circular(15.0),
-                  bottomRight: index == filteredAzkarList.length - 1
-                      ? const Radius.circular(20.0)
-                      : const Radius.circular(15.0),
+            bool _hasDescription =
+                azkarjason[index]['description'].toString().isNotEmpty;
+            return GestureDetector(
+              onTap: isButtonEnabled ? () => handleButtonPress(index) : null,
+              child: Container(
+                margin: const EdgeInsets.all(4),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  borderRadius: BorderRadius.only(
+                    topLeft: index == 0
+                        ? const Radius.circular(20.0)
+                        : const Radius.circular(15.0),
+                    topRight: index == 0
+                        ? const Radius.circular(20.0)
+                        : const Radius.circular(15.0),
+                    bottomLeft: index == filteredAzkarList.length - 1
+                        ? const Radius.circular(20.0)
+                        : const Radius.circular(15.0),
+                    bottomRight: index == filteredAzkarList.length - 1
+                        ? const Radius.circular(20.0)
+                        : const Radius.circular(15.0),
+                  ),
                 ),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    filteredAzkarList[index]['zekr'],
-                    textAlign: TextAlign.center,
-                    maxLines: 30,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      color: AppColors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(),
-                  Text(
-                    filteredAzkarList[index]['reference'],
-                    style: const TextStyle(
-                      color: AppColors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      IconButton(
-                        onPressed: () => Text(
-                          azkarjason[index]['description']!,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: AppColors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                        icon: Icon(
-                          Icons.info,
-                          color: settingsProvider.isDarkMode()
-                              ? AppColors.white
-                              : AppColors.accent,
-                        ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      filteredAzkarList[index]['zekr'],
+                      textAlign: TextAlign.center,
+                      maxLines: 30,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: AppColors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
-                      const Spacer(flex: 2),
-                      GestureDetector(
-                        onTap: isButtonEnabled
-                            ? () => handleButtonPress(index)
-                            : null,
-                        child: Container(
+                    ),
+                    const SizedBox(),
+                    Text(
+                      filteredAzkarList[index]['reference'],
+                      style: const TextStyle(
+                        color: AppColors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        if (_hasDescription)
+                          IconButton(
+                            onPressed: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return Container(
+                                      width: double.infinity,
+                                      padding: EdgeInsets.all(16),
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.vertical(
+                                              top: Radius.circular(20))),
+                                      child: Text(
+                                        azkarjason[index]['description']!,
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      ),
+                                    );
+                                  });
+                            },
+                            icon: Icon(
+                              Icons.info,
+                              color: settingsProvider.isDarkMode()
+                                  ? AppColors.white
+                                  : AppColors.accent,
+                            ),
+                          ),
+                        Spacer(flex: _hasDescription ? 2 : 1),
+                        Container(
                           padding: const EdgeInsets.symmetric(
                               vertical: 10, horizontal: 15),
                           decoration: BoxDecoration(
@@ -165,11 +181,11 @@ class _ZekrDetailState extends State<ZekrDetail> {
                                 color: AppColors.white, fontSize: 20),
                           ),
                         ),
-                      ),
-                      const Spacer(flex: 3),
-                    ],
-                  ),
-                ],
+                        Spacer(flex: _hasDescription ? 3 : 1),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             );
           },
