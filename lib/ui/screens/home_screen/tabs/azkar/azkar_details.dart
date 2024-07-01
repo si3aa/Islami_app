@@ -81,7 +81,7 @@ class _ZekrDetailState extends State<ZekrDetail> {
           itemBuilder: (context, index) {
             bool isButtonEnabled =
                 currentCounts[index].toString() != azkarjason[index]['count'];
-            bool _hasDescription =
+            bool hasDescription =
                 azkarjason[index]['description'].toString().isNotEmpty;
             return GestureDetector(
               onTap: isButtonEnabled ? () => handleButtonPress(index) : null,
@@ -131,7 +131,7 @@ class _ZekrDetailState extends State<ZekrDetail> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        if (_hasDescription)
+                        if (hasDescription)
                           IconButton(
                             onPressed: () {
                               showModalBottomSheet(
@@ -139,8 +139,8 @@ class _ZekrDetailState extends State<ZekrDetail> {
                                   builder: (ctx) {
                                     return Container(
                                       width: double.infinity,
-                                      padding: EdgeInsets.all(16),
-                                      decoration: BoxDecoration(
+                                      padding: const EdgeInsets.all(16),
+                                      decoration: const BoxDecoration(
                                           color: Colors.white,
                                           borderRadius: BorderRadius.vertical(
                                               top: Radius.circular(20))),
@@ -163,7 +163,7 @@ class _ZekrDetailState extends State<ZekrDetail> {
                                   : AppColors.accent,
                             ),
                           ),
-                        Spacer(flex: _hasDescription ? 2 : 1),
+                        Spacer(flex: hasDescription ? 2 : 1),
                         Container(
                           padding: const EdgeInsets.symmetric(
                               vertical: 10, horizontal: 15),
@@ -181,7 +181,7 @@ class _ZekrDetailState extends State<ZekrDetail> {
                                 color: AppColors.white, fontSize: 20),
                           ),
                         ),
-                        Spacer(flex: _hasDescription ? 3 : 1),
+                        Spacer(flex: hasDescription ? 3 : 1),
                       ],
                     ),
                   ],
